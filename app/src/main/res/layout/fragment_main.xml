@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_height="match_parent"
+    android:background="@color/mainBackground"
+    tools:context=".view.MainFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                        <TextView
+                            android:textColor="#FF0000"
+                            android:text="@string/refresh_error"
+                            android:id="@+id/errorTxt"
+                            android:textSize="14sp"
+                            android:visibility="gone"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"/>
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="8dp">
+
+                                <EditText
+                                    android:id="@+id/searchTxt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:autofillHints="no"
+                                    android:background="@drawable/edittext_bg"
+                                    android:drawablePadding="6dp"
+                                    android:fontFamily="@font/roboto_medium"
+                                    android:hint="@string/search_movie"
+                                    android:imeOptions="actionSearch"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:paddingStart="16dp"
+                                    android:paddingEnd="16dp"
+                                    android:textColor="#DADADA"
+                                    android:textColorHint="#535353"
+                                    android:textSize="16sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/searchImg"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/searchImg"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="20dp"
+                                    android:src="@drawable/ic_baseline_search_24"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="6dp"
+                            android:text="@string/popular_movies"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/league_spartan_bold"/>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:clipToPadding="false"
+                            android:id="@+id/popularRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="6dp"
+                            android:text="@string/now_playing"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/league_spartan_bold"/>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:clipToPadding="false"
+                            android:id="@+id/nowPlayingRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="6dp"
+                            android:text="@string/upcoming_movies"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/league_spartan_bold"/>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:clipToPadding="false"
+                            android:id="@+id/upcomingRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

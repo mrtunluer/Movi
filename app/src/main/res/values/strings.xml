@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Movi</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="refresh_error">Sayfa Güncellenemedi !</string>
+    <string name="popular_movies">Popüler Filmler</string>
+    <string name="upcoming_movies">Yakında Vizyonda</string>
+    <string name="budget">Bütçe</string>
+    <string name="revenue">Gelir</string>
+    <string name="search_movie">Film Ara...</string>
+    <string name="now_playing">Vizyondakiler</string>
+    <string name="biography">Biyografi</string>
+    <string name="starringMovies">Rol Aldığı Filmler</string>
+    <string name="showMore">devamı</string>
+    <string name="showLess">azalt</string>
+</resources>
