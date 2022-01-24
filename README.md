@@ -1,6 +1,6 @@
 # Movi
 
-Movi is a sample movie project using TMDB API based on MVVM architecture.
+Movi is a sample movie project using <a href="https://developers.themoviedb.org/3/getting-started/introduction" target="_blank">TMDB API</a> based on MVVM architecture.
 
 ## Features
 
