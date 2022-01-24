@@ -2,7 +2,7 @@ package com.yks.movi.utils
 
 object Credentials {
     const val BASE_URL = "https://api.themoviedb.org/3/"
-    const val API_KEY = "yourOwnApiKey"
+    const val API_KEY = "yourOwnApiKey(v3)"
     const val ACTOR_MOVIE_CREDITS = "person/{person_id}"
     const val POPULAR_MOVIE_URL = "movie/popular"
     const val UPCOMING_MOVIE_URL = "movie/upcoming"
