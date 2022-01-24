@@ -24,7 +24,7 @@ Movi is a sample movie project using TMDB API based on MVVM architecture.
 - <a href="https://github.com/ReactiveX/RxAndroid" target="_blank">RxJava3</a>
 - <a href="https://developer.android.com/training/dependency-injection/hilt-android" target="_blank">Hilt</a> - recommended solution for dependency injection in Android apps
 
-## Ekran Görüntüleri
+## ScreenShots
 ![Google Pixel 4 XL Presentation-min](https://user-images.githubusercontent.com/75806927/150710050-05610daa-984d-45cc-b28a-e9e2a3b89614.png)
 
   
