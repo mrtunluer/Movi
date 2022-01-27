@@ -22,15 +22,9 @@ class MainFragmentViewModel
 
     private val compositeDisposable = CompositeDisposable()
 
-    val popularMovieResults: MutableLiveData<PagingData<MovieResult>> by lazy {
-        MutableLiveData<PagingData<MovieResult>>()
-    }
-    val upcomingMovieResults: MutableLiveData<PagingData<MovieResult>> by lazy {
-        MutableLiveData<PagingData<MovieResult>>()
-    }
-    val nowPlayingMovieResults: MutableLiveData<PagingData<MovieResult>> by lazy {
-        MutableLiveData<PagingData<MovieResult>>()
-    }
+    val popularMovieResults = MutableLiveData<PagingData<MovieResult>>()
+    val upcomingMovieResults = MutableLiveData<PagingData<MovieResult>>()
+    val nowPlayingMovieResults = MutableLiveData<PagingData<MovieResult>>()
 
 
     init {

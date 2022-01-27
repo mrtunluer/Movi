@@ -17,9 +17,7 @@ class DetailsFragmentViewModel
     ViewModel(){
 
     private val compositeDisposable = CompositeDisposable()
-    val movieDetails: MutableLiveData<DataStatus<MovieDetails>> by lazy {
-        MutableLiveData<DataStatus<MovieDetails>>()
-    }
+    val movieDetails = MutableLiveData<DataStatus<MovieDetails>>()
 
     init {
         getMovieDetails()

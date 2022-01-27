@@ -12,11 +12,11 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchFragmentViewModel @Inject constructor(private val searchResultRepository: SearchResultRepository): ViewModel() {
+class SearchFragmentViewModel @Inject constructor(
+    private val searchResultRepository: SearchResultRepository):
+    ViewModel() {
     private val compositeDisposable = CompositeDisposable()
-    val searchResults: MutableLiveData<PagingData<MovieResult>> by lazy {
-        MutableLiveData<PagingData<MovieResult>>()
-    }
+    val searchResults = MutableLiveData<PagingData<MovieResult>>()
 
     init {
         getSearchResult()

@@ -19,9 +19,7 @@ class ActorFragmentViewModel
     ViewModel(){
 
     private val compositeDisposable = CompositeDisposable()
-    val actorProfile: MutableLiveData<DataStatus<ActorProfile>> by lazy {
-        MutableLiveData<DataStatus<ActorProfile>>()
-    }
+    val actorProfile = MutableLiveData<DataStatus<ActorProfile>>()
 
     init {
         getActorProfile()
