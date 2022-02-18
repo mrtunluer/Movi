@@ -42,6 +42,28 @@ object NetworkModule {
 
     @Singleton
     @Provides
+    fun provideRetrofit(
+        httpLoggingInterceptor: Call.Factory,
+        gsonConverterFactory: GsonConverterFactory,
+        rxJava3CallAdapterFactory: RxJava3CallAdapterFactory,
+        @Named("base_url")baseUrl: String
+    ): Retrofit{
+        return Retrofit.Builder()
+            .callFactory(httpLoggingInterceptor)
+            .addConverterFactory(gsonConverterFactory)
+            .addCallAdapterFactory(rxJava3CallAdapterFactory)
+            .baseUrl(baseUrl)
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideRxjava3CallAdapter(): RxJava3CallAdapterFactory{
+        return RxJava3CallAdapterFactory.create()
+    }
+
+    @Singleton
+    @Provides
     fun provideGson(): Gson{
         return GsonBuilder().create()
     }
@@ -50,12 +72,6 @@ object NetworkModule {
     @Provides
     fun provideGsonConverterFactory(): GsonConverterFactory{
         return GsonConverterFactory.create()
-    }
-
-    @Singleton
-    @Provides
-    fun provideRxjava3CallAdapter(): RxJava3CallAdapterFactory{
-        return RxJava3CallAdapterFactory.create()
     }
 
     @Singleton
@@ -93,28 +109,10 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(
-        httpLoggingInterceptor: Call.Factory,
-        gsonConverterFactory: GsonConverterFactory,
-        rxJava3CallAdapterFactory: RxJava3CallAdapterFactory,
-        @Named("base_url")baseUrl: String
-    ): Retrofit{
-        return Retrofit.Builder()
-            .callFactory(httpLoggingInterceptor)
-            .addConverterFactory(gsonConverterFactory)
-            .addCallAdapterFactory(rxJava3CallAdapterFactory)
-            .baseUrl(baseUrl)
-            .build()
-    }
-
-
-
-
-    @Singleton
-    @Provides
     fun provideMovieService(retrofit: Retrofit): MovieApiService {
         return retrofit.create(MovieApiService::class.java)
     }
+
 
 
 }
