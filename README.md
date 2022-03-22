@@ -2,6 +2,9 @@
 
 Movi is a sample movie project using <a href="https://developers.themoviedb.org/3/getting-started/introduction" target="_blank">TMDB API</a> based on MVVM architecture.
 
+## ScreenShots
+![Google Pixel 4 XL Presentation-min](https://user-images.githubusercontent.com/75806927/150710050-05610daa-984d-45cc-b28a-e9e2a3b89614.png)
+
 ## Features
 
 - Search movies
@@ -23,8 +26,5 @@ Movi is a sample movie project using <a href="https://developers.themoviedb.org/
 - <a href="https://developer.android.com/topic/libraries/view-binding" target="_blank">View Binding</a>
 - <a href="https://github.com/ReactiveX/RxAndroid" target="_blank">RxJava3</a>
 - <a href="https://developer.android.com/training/dependency-injection/hilt-android" target="_blank">Hilt</a> - recommended solution for dependency injection in Android apps
-
-## ScreenShots
-![Google Pixel 4 XL Presentation-min](https://user-images.githubusercontent.com/75806927/150710050-05610daa-984d-45cc-b28a-e9e2a3b89614.png)
 
   
