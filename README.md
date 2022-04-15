@@ -1,6 +1,6 @@
 # Movi
 
-Movi is a sample movie project using <a href="https://developers.themoviedb.org/3/getting-started/introduction" target="_blank">TMDB API</a> based on <a href="https://developer.android.com/jetpack/guide?gclid=Cj0KCQjw_4-SBhCgARIsAAlegrVW36BD-QWrvBm-AogSBlwb5_0Be2NpeQmQ2lgXe5sihyP4g5oz-zoaAqSYEALw_wcB&gclsrc=aw.ds" target="_blank">Mvvm</a> design pattern.
+Movi is a sample movie project using <a href="https://www.themoviedb.org/" target="_blank">TMDB API</a> based on <a href="https://developer.android.com/jetpack/guide?gclid=Cj0KCQjw_4-SBhCgARIsAAlegrVW36BD-QWrvBm-AogSBlwb5_0Be2NpeQmQ2lgXe5sihyP4g5oz-zoaAqSYEALw_wcB&gclsrc=aw.ds" target="_blank">Mvvm</a> design pattern.
 
 ## ScreenShots
 ![Google Pixel 4 XL Presentation-min](https://user-images.githubusercontent.com/75806927/150710050-05610daa-984d-45cc-b28a-e9e2a3b89614.png)
