@@ -3,14 +3,12 @@ package com.yks.movi.adapter
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.yks.movi.R
 import com.yks.movi.databinding.CastItemBinding
 import com.yks.movi.model.Cast
 import com.yks.movi.utils.Credentials
 import com.yks.movi.utils.downloadFromUrl
-import com.yks.movi.view.DetailsFragmentDirections
 
 class CastAdapter: RecyclerView.Adapter<CastAdapter.ViewHolder>(){
     private val castList: ArrayList<Cast> = arrayListOf()
@@ -28,10 +26,9 @@ class CastAdapter: RecyclerView.Adapter<CastAdapter.ViewHolder>(){
         }?: viewHolder.binding.castImg.setImageResource(R.drawable.profile)
         viewHolder.binding.castName.text = cast.originalName
 
-        viewHolder.itemView.setOnClickListener {view ->
-            cast.id?.let {
-                val action = DetailsFragmentDirections.actionDetailsFragmentToActorFragment(it)
-                view.findNavController().navigate(action)
+        viewHolder.itemView.setOnClickListener {
+            onItemClickListener?.let {
+                it(cast)
             }
         }
     }
@@ -47,6 +44,9 @@ class CastAdapter: RecyclerView.Adapter<CastAdapter.ViewHolder>(){
         notifyDataSetChanged()
     }
 
+    private var onItemClickListener: ((Cast) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (Cast) -> Unit) { onItemClickListener = listener }
 
 
 }

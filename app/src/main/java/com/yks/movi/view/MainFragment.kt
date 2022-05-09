@@ -5,18 +5,22 @@ import android.view.*
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yks.movi.Movi
+import com.yks.movi.R
 import com.yks.movi.adapter.PopularMovieAdapter
 import com.yks.movi.footer.MovieFooterLoadStateAdapter
 import com.yks.movi.adapter.NowPlayingMovieAdapter
 import com.yks.movi.adapter.UpcomingMovieAdapter
 import com.yks.movi.databinding.FragmentMainBinding
+import com.yks.movi.model.MovieResult
 import com.yks.movi.utils.hideKeyboard
 import com.yks.movi.viewmodel.MainFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -69,11 +73,25 @@ class MainFragment : Fragment() {
             }
         }
 
+        nowPlayingMovieAdapter.setOnItemClickListener { movieResult ->
+            goDetails(movieResult)
+        }
+
+        popularMovieAdapter.setOnItemClickListener { movieResult ->
+            goDetails(movieResult)
+        }
+
+        upcomingMovieAdapter.setOnItemClickListener { movieResult ->
+            goDetails(movieResult)
+        }
+
     }
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-        binding.searchTxt.setText(Movi.QUERY)
+    private fun goDetails(movieResult: MovieResult){
+        movieResult.id?.let {
+            val bundle = bundleOf("movieId" to it)
+            findNavController().navigate(R.id.action_mainFragment_to_detailsFragment, bundle)
+        }
     }
 
     private fun goSearchFragment(){
@@ -146,10 +164,14 @@ class MainFragment : Fragment() {
         })
     }
 
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        binding.searchTxt.setText(Movi.QUERY)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 
 }

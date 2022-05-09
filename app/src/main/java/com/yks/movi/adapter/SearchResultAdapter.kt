@@ -29,6 +29,7 @@ class SearchResultAdapter: PagingDataAdapter<MovieResult,SearchResultAdapter.Vie
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         holder.binding.apply {
             describeTxt.text = getItem(position)?.overview
             titleTxt.text = getItem(position)?.title
@@ -39,10 +40,11 @@ class SearchResultAdapter: PagingDataAdapter<MovieResult,SearchResultAdapter.Vie
             holder.binding.movieImg.downloadFromUrl(Credentials.BASE_URL_TO_IMAGE.plus(it),holder.itemView.context)
         }?:holder.binding.movieImg.setImageResource(R.drawable.error)
 
-        holder.itemView.setOnClickListener {view ->
-            getItem(position)?.id?.let {
-                val action = SearchFragmentDirections.actionSearchFragmentToDetailsFragment(it)
-                view.findNavController().navigate(action)
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let {
+                getItem(position)?.let { movieResult ->
+                    it(movieResult)
+                }
             }
         }
 
@@ -60,5 +62,8 @@ class SearchResultAdapter: PagingDataAdapter<MovieResult,SearchResultAdapter.Vie
         }
     }
 
+    private var onItemClickListener: ((MovieResult) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (MovieResult) -> Unit) { onItemClickListener = listener }
 
 }

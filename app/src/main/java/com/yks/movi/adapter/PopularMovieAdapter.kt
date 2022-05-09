@@ -2,7 +2,6 @@ package com.yks.movi.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +10,6 @@ import com.yks.movi.databinding.MovieItemBinding
 import com.yks.movi.model.MovieResult
 import com.yks.movi.utils.Credentials
 import com.yks.movi.utils.downloadFromUrl
-import com.yks.movi.view.MainFragmentDirections
 
 class PopularMovieAdapter: PagingDataAdapter<MovieResult,PopularMovieAdapter.ViewHolder>(PopularMovieDiffCallBack) {
 
@@ -32,10 +30,11 @@ class PopularMovieAdapter: PagingDataAdapter<MovieResult,PopularMovieAdapter.Vie
             holder.binding.movieImg.downloadFromUrl(Credentials.BASE_URL_TO_IMAGE.plus(it),holder.itemView.context)
         }?:holder.binding.movieImg.setImageResource(R.drawable.error)
 
-        holder.itemView.setOnClickListener {view ->
-            getItem(position)?.id?.let {
-                val action = MainFragmentDirections.actionMainFragmentToDetailsFragment(it)
-                view.findNavController().navigate(action)
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let {
+                getItem(position)?.let { movieResult ->
+                    it(movieResult)
+                }
             }
         }
 
@@ -52,5 +51,9 @@ class PopularMovieAdapter: PagingDataAdapter<MovieResult,PopularMovieAdapter.Vie
             }
         }
     }
+
+    private var onItemClickListener: ((MovieResult) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (MovieResult) -> Unit) { onItemClickListener = listener }
 
 }

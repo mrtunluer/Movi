@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yks.movi.R
 import com.yks.movi.adapter.CastAdapter
@@ -52,6 +54,13 @@ class DetailsFragment: Fragment() {
 
         binding.backBtn.setOnClickListener {
             it.findNavController().popBackStack()
+        }
+
+        castAdapter.setOnItemClickListener { cast ->
+            cast.id?.let {
+                val bundle = bundleOf("personId" to it)
+                findNavController().navigate(R.id.action_detailsFragment_to_actorFragment, bundle)
+            }
         }
 
     }

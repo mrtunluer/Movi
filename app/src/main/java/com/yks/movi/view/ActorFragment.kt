@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yks.movi.R
 import com.yks.movi.adapter.MovieStarringAdapter
@@ -50,6 +52,13 @@ class ActorFragment : Fragment() {
 
         binding.backBtn.setOnClickListener {
             it.findNavController().popBackStack()
+        }
+
+        movieStarringAdapter.setOnItemClickListener { movies ->
+            movies.id?.let {
+                val bundle = bundleOf("movieId" to it)
+                findNavController().navigate(R.id.action_actorFragment_to_detailsFragment, bundle)
+            }
         }
 
     }
